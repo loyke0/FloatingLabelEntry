@@ -82,4 +82,14 @@
   <Import Project="..\FloatingLabelEntry.Demo\FloatingLabelEntry.Demo.projitems" Label="Shared" Condition="Exists('..\FloatingLabelEntry.Demo\FloatingLabelEntry.Demo.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.3.5.6335\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.3.5.6335\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
+  <ItemGroup>
+    <ProjectReference Include="..\FloatingLabelEntry.Android\FloatingLabelEntry.Android.csproj">
+      <Project>{5F8431C0-9815-42D1-8CFA-26C55E964A36}</Project>
+      <Name>FloatingLabelEntry.Android</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FloatingLabelEntry\FloatingLabelEntry.csproj">
+      <Project>{5148F431-17E7-431C-A490-03BF8AEE8C26}</Project>
+      <Name>FloatingLabelEntry</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>
