@@ -2,6 +2,7 @@
 using FloatingLabelEntry;
 using Xamarin.Forms;
 using FloatingLabelEntry.Base;
+using FloatingLabelEntry.Enumerations;
 
 namespace FloatingLabelEntry.Demo
 {
@@ -19,11 +20,14 @@ namespace FloatingLabelEntry.Demo
 							LabelText="Your Name",
 							FontSize=60,
 							CornerRadius = 20f,
+							FontName="BebasNeueBook",
 						},
-						new PasswordFloatingLabelEntry {
+						new SimpleFloatingLabelEntry {
 							HeightRequest=100,
+							LabelText="Your Mail",
 							FontSize=60,
 							CornerRadius = 20f,
+							CustomKeyboard=CustomKeyboardEnum.EmailAndNumeric,
 						},
 					}
 				}

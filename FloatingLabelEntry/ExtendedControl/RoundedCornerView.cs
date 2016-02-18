@@ -1,7 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 
-namespace FloatingLabelEntry.ExtendedControl
+namespace FloatingLabelEntry.ExtendedControls
 {
 	public class RoundedCornerView:Frame
 	{

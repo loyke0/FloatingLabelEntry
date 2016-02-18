@@ -3,7 +3,7 @@ using Xamarin.Forms;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using FloatingLabelEntry.Enumerations;
-using FloatingLabelEntry.ExtendedControl;
+using FloatingLabelEntry.ExtendedControls;
 
 namespace FloatingLabelEntry.Base
 {		
@@ -44,6 +44,22 @@ namespace FloatingLabelEntry.Base
 		{
 			get { return (float)GetValue(FontSizeProperty); }
 			set { SetValue(FontSizeProperty, value);}
+		}
+
+
+		/// <summary>
+		/// The FontName Property
+		/// </summary>
+		private static readonly string FontNamePropertyName="FontName";
+		public static readonly BindableProperty FontNameProperty =
+			BindableProperty.Create(FontNamePropertyName, typeof(String), typeof(ExtendedEntry), String.Empty);
+
+		/// <summary>
+		/// Get or Set the FontName
+		/// </summary>
+		public String FontName {
+			get{ return (String) GetValue(FontNameProperty) ;}
+			set{ SetValue (FontNameProperty, value); }
 		}
 
 		/// <summary>
@@ -224,6 +240,8 @@ namespace FloatingLabelEntry.Base
 			};
 			_InfoMessage.SetBinding (Label.TextProperty, FloatingLabelEntryBase.InfoMessageProperty.PropertyName);
 			_InfoMessage.SetBinding (VisualElement.BackgroundColorProperty, VisualElement.BackgroundColorProperty.PropertyName);
+			_InfoMessage.SetBinding (ExtendedLabel.FontNameProperty, FontNamePropertyName);
+
 			_InfoMessage.BindingContext = this;
 
 			_Label = new Label {
@@ -232,17 +250,22 @@ namespace FloatingLabelEntry.Base
 			};
 			_Label.SetBinding (Label.TextProperty, LabelTextPropertyName);
 			_Label.SetBinding (Label.BackgroundColorProperty, FloatingLabelEntryBase.BackgroundColorProperty.PropertyName);
+			_Label.SetBinding (ExtendedLabel.FontNameProperty, FontNamePropertyName);
+
 			_Label.BindingContext = this;
 
 			_Entry = new ExtendedEntry () {
 				IsPassword=this.IsPassword, 
-				Text=this.EntryText, 
+				Text=this.EntryText,
+				FontName=this.FontName,
 			} ;
 			_Entry.SetBinding (ExtendedEntry.TextProperty, EntryTextPropertyName);
 			_Entry.SetBinding (ExtendedEntry.PlaceholderProperty, LabelTextPropertyName);
 			_Entry.SetBinding (ExtendedEntry.IsPasswordProperty, IsPasswordPropertyName);
 			_Entry.SetBinding (ExtendedEntry.CustomKeyboardProperty, CustomKeyboardPropertyName);
+			_Entry.SetBinding (ExtendedEntry.FontNameProperty, FontNamePropertyName);
 			_Entry.SetBinding (ExtendedEntry.BackgroundColorProperty, FloatingLabelEntryBase.BackgroundColorProperty.PropertyName);
+
 			_Entry.BindingContext = this;
 
 			this._Entry.Focused+=((s, e) => {

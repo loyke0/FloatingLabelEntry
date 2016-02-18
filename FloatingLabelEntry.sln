@@ -13,6 +13,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FloatingLabelEntry.Demo.Dro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FloatingLabelEntry.Android", "FloatingLabelEntry.Android\FloatingLabelEntry.Android.csproj", "{5F8431C0-9815-42D1-8CFA-26C55E964A36}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solutionfolder", "Solutionfolder", "{A1C35195-9E86-4212-97AF-6A0EE328E7C4}"
+	ProjectSection(SolutionItems) = preProject
+		FloatingLabelEntry.nuspec = FloatingLabelEntry.nuspec
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,5 +88,7 @@ Global
 		{5F8431C0-9815-42D1-8CFA-26C55E964A36}.Release|iPhone.Build.0 = Release|Any CPU
 		{5F8431C0-9815-42D1-8CFA-26C55E964A36}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{5F8431C0-9815-42D1-8CFA-26C55E964A36}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
 EndGlobal

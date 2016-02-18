@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+   <metadata minClientVersion="2.8.1">
+       <id>FLoatingLabelEntry</id>
+       <version>0.1</version>
+       <title>Image Circle Control Plugin for Xamarin.Forms</title>
+       <authors>James Montemagno</authors>
+       <owners>James Montemagno</owners>
+       <licenseUrl>https://github.com/jamesmontemagno/Xamarin.Plugins/blob/master/LICENSE.md</licenseUrl>
+       <projectUrl>https://github.com/jamesmontemagno/Xamarin.Plugins</projectUrl>
+      <iconUrl>http://www.refractored.com/images/circle_image_icon.png</iconUrl>
+       <requireLicenseAcceptance>false</requireLicenseAcceptance>
+       <description>
+          Custom control for your Xamarin.Forms project ot turn your images into elegant circle images.
+          Customizable border thickness and color.
+          Ensure you call ImageCircleRenderer.Init() on each platform!
+       </description>
+       <summary>Use a Circle Image in your Xamarin.Forms projects! Ensure you call ImageCircleRenderer.Init() on each platform!</summary>
+       <tags>xamarin, pcl, xam.pcl, windows phone, winphone, wp8, android, xamarin.forms, ios</tags>
+       <dependencies>
+         <dependency id="Xamarin.Forms" version="2.0.1.6505" />
+       </dependencies>
+   </metadata>
+   <files>
+      <!--Core-->
+     <file src="/FloatingLabelEntry/bin/Release/FloatingLabelEntry.dll" target="lib/portable-MonoAndroid10+Xamarin.iOS10/FloatingLabelEntry.dll" />
+     
+     <!--Xamarin.Android-->
+     <file src="/FloatingLabelEntry.Android/bin/Release/FloatingLabelEntry.Android.dll" target="lib/MonoAndroid10/FloatingLabelEntry.Android.dll" />
+     <file src="/FloatingLabelEntry/bin/Release/FloatingLabelEntry.dll" target="lib/MonoAndroid10/FloatingLabelEntry.dll" />
+
+     <!--Xamarin.iOSUnified-->
+     <file src="/FloatingLabelEntry.IOS/bin/Release/FloatingLabelEntry.IOS.dll" target="lib/Xamarin.iOS10/FloatingLabelEntry.IOS.dll" />
+     <file src="/FloatingLabelEntry/bin/Release/FloatingLabelEntry.dll" target="lib/Xamarin.iOS10/FloatingLabelEntry.dll" />      
+   </files>
+</package>

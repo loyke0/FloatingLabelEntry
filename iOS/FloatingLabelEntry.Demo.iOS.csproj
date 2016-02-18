@@ -120,11 +120,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\ValidationIcons\" />
+    <Folder Include="Resources\Fonts\" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\ValidationIcons\ErrorIcon.png" />
     <BundleResource Include="Resources\ValidationIcons\InfoIcon.png" />
     <BundleResource Include="Resources\ValidationIcons\ValidIcon.png" />
     <BundleResource Include="Resources\ValidationIcons\WarningIcon.png" />
+    <BundleResource Include="Resources\Fonts\BebasNeueBook.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </BundleResource>
   </ItemGroup>
 </Project>

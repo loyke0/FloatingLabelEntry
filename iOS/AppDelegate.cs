@@ -16,6 +16,15 @@ namespace FloatingLabelEntry.Demo.iOS
 			global::Xamarin.Forms.Forms.Init ();
 			FloatingLabelEntryBaseRenderer.Register ();
 
+			foreach (var font in UIFont.FamilyNames)
+			{
+				foreach (var item in UIFont.FontNamesForFamilyName(font))
+				{
+					Console.WriteLine(item);
+				}
+				Console.WriteLine("-----------");
+			}
+
 			LoadApplication (new App ());
 
 			return base.FinishedLaunching (app, options);

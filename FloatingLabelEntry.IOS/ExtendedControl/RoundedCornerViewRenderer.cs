@@ -1,12 +1,12 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
-using FloatingLabelEntry.iOS.ExtendedControl;
-using FloatingLabelEntry.ExtendedControl;
+using FloatingLabelEntry.iOS.ExtendedControls;
+using FloatingLabelEntry.ExtendedControls;
 
 [assembly: ExportRenderer(typeof(RoundedCornerView), typeof(RoundedCornerViewRenderer))]
 
-namespace FloatingLabelEntry.iOS.ExtendedControl
+namespace FloatingLabelEntry.iOS.ExtendedControls
 {
 	public class RoundedCornerViewRenderer:FrameRenderer
 	{

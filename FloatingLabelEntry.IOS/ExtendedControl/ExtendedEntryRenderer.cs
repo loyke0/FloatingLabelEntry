@@ -3,13 +3,15 @@ using Xamarin.Forms.Platform.iOS;
 using Xamarin.Forms;
 using UIKit;
 using System.Drawing;
-using FloatingLabelEntry.ExtendedControl;
+using FloatingLabelEntry.ExtendedControls;
 using FloatingLabelEntry.Enumerations;
-using FloatingLabelEntry.iOS.ExtendedControl;
+using FloatingLabelEntry.iOS.ExtendedControls;
+using System.Collections.Generic;
+using System.IO;
 
 [assembly: ExportRenderer(typeof(ExtendedEntry), typeof(ExtendedEntryRenderer))]
 
-namespace FloatingLabelEntry.iOS.ExtendedControl
+namespace FloatingLabelEntry.iOS.ExtendedControls
 {
 	public class ExtendedEntryRenderer:EntryRenderer
 	{
@@ -21,13 +23,13 @@ namespace FloatingLabelEntry.iOS.ExtendedControl
 		protected override void OnElementChanged (ElementChangedEventArgs<Entry> e)
 		{
 			base.OnElementChanged (e);
-			if (this.Control!=null && e.NewElement!=null) {
+			if (e.OldElement==null && e.NewElement!=null) {
 				var entry = e.NewElement as ExtendedEntry;
 				this.SetKeyboard (entry.CustomKeyboard);
+				this.SetFont (entry);
 				this.Control.AutocorrectionType = UITextAutocorrectionType.No;
 				this.Control.SpellCheckingType = UITextSpellCheckingType.No;
 				this.Control.BorderStyle = UITextBorderStyle.None;
-				LayoutSubviews();
 			}
 		}
 
@@ -38,8 +40,24 @@ namespace FloatingLabelEntry.iOS.ExtendedControl
 			if (e.PropertyName == ExtendedEntry.CustomKeyboardProperty.PropertyName) {
 				SetKeyboard (entry.CustomKeyboard);
 			}
+			else if (e.PropertyName==ExtendedEntry.FontNameProperty.PropertyName) {
+				SetFont (entry);
+			}
 		}
 			
+		private void SetFont (ExtendedEntry entry){
+			if (!String.IsNullOrWhiteSpace(entry.FontName)) {
+				var font = UIFont.FromName (entry.FontName, (nfloat)entry.FontSize);
+				if (font != null)
+				{
+					this.Control.Font = font;
+				}
+			} else {
+				var tmp = Font.Default.ToUIFont ().WithSize ((nfloat)entry.FontSize);
+				this.Control.Font = Font.Default.ToUIFont().WithSize((nfloat)entry.FontSize);
+			}
+		}
+
 		private void SetKeyboard(CustomKeyboardEnum keyboard){
 			switch (keyboard) {
 			case CustomKeyboardEnum.Chat:
@@ -85,28 +103,12 @@ namespace FloatingLabelEntry.iOS.ExtendedControl
 		private void SetNumericToolbar(bool isSet) {
 			if (isSet) {
 				UIToolbar toolbar = new UIToolbar (new RectangleF(0.0f, 0.0f, 10.0f, 44.0f));
-				toolbar.Items = new UIBarButtonItem[]{
-					new UIBarButtonItem("1",
-						UIBarButtonItemStyle.Plain, AddBarButtonText),
-					new UIBarButtonItem("2",
-						UIBarButtonItemStyle.Plain, AddBarButtonText),
-					new UIBarButtonItem("3",
-						UIBarButtonItemStyle.Plain, AddBarButtonText),
-					new UIBarButtonItem("4",
-						UIBarButtonItemStyle.Plain, AddBarButtonText),
-					new UIBarButtonItem("5",
-						UIBarButtonItemStyle.Plain, AddBarButtonText),
-					new UIBarButtonItem("6",
-						UIBarButtonItemStyle.Plain, AddBarButtonText),
-					new UIBarButtonItem("7",
-						UIBarButtonItemStyle.Plain, AddBarButtonText),
-					new UIBarButtonItem("8",
-						UIBarButtonItemStyle.Plain, AddBarButtonText),
-					new UIBarButtonItem("9",
-						UIBarButtonItemStyle.Plain, AddBarButtonText),
-					new UIBarButtonItem("0",
-						UIBarButtonItemStyle.Plain, AddBarButtonText),
-				};
+				var buttonBarItems = new List<UIBarButtonItem> ();
+				for (int i = 1; i < 10; i++) {
+					buttonBarItems.Add (new UIBarButtonItem (i.ToString(), UIBarButtonItemStyle.Plain, AddBarButtonText));
+				}
+				buttonBarItems.Add (new UIBarButtonItem ("0", UIBarButtonItemStyle.Plain, AddBarButtonText));
+				toolbar.Items = buttonBarItems.ToArray();
 				Control.InputAccessoryView = toolbar;
 			} else {
 				Control.InputAccessoryView = null;
