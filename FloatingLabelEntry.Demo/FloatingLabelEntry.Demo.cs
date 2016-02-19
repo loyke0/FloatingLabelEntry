@@ -12,6 +12,7 @@ namespace FloatingLabelEntry.Demo
 		{
 			// The root page of your application
 			MainPage = new ContentPage {
+				BackgroundColor=Color.White,
 				Content = new StackLayout {
 					VerticalOptions = LayoutOptions.Center,
 					Children = {
@@ -21,6 +22,7 @@ namespace FloatingLabelEntry.Demo
 							FontSize=60,
 							CornerRadius = 20f,
 							FontName="BebasNeueBook",
+							BorderColor=Color.Olive,
 						},
 						new SimpleFloatingLabelEntry {
 							HeightRequest=100,

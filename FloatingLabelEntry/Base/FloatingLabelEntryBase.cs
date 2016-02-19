@@ -46,6 +46,21 @@ namespace FloatingLabelEntry.Base
 			set { SetValue(FontSizeProperty, value);}
 		}
 
+		/// <summary>
+		/// The TextColor Property
+		/// </summary>
+		private static readonly string TextColorPropertyName="TextColor";
+		public static readonly BindableProperty TextColorProperty =
+			BindableProperty.Create(TextColorPropertyName, typeof(Color), typeof(FloatingLabelEntryBase), Color.Black);
+
+		/// <summary>
+		/// Get or Set the TextColor
+		/// </summary>
+		public Color TextColor
+		{
+			get { return (Color)GetValue(TextColorProperty); }
+			set { SetValue(TextColorProperty, value);}
+		}
 
 		/// <summary>
 		/// The FontName Property
@@ -237,20 +252,24 @@ namespace FloatingLabelEntry.Base
 				VerticalOptions=LayoutOptions.CenterAndExpand,
 				HorizontalTextAlignment=TextAlignment.Center,
 				HorizontalOptions=LayoutOptions.FillAndExpand,
+				TextColor=this.TextColor,
 			};
 			_InfoMessage.SetBinding (Label.TextProperty, FloatingLabelEntryBase.InfoMessageProperty.PropertyName);
 			_InfoMessage.SetBinding (VisualElement.BackgroundColorProperty, VisualElement.BackgroundColorProperty.PropertyName);
 			_InfoMessage.SetBinding (ExtendedLabel.FontNameProperty, FontNamePropertyName);
+			_InfoMessage.SetBinding (Label.TextColorProperty, TextColorPropertyName);
 
 			_InfoMessage.BindingContext = this;
 
 			_Label = new Label {
 				Text=this.LabelText,
 				Opacity=0,
+				TextColor=this.TextColor,
 			};
 			_Label.SetBinding (Label.TextProperty, LabelTextPropertyName);
 			_Label.SetBinding (Label.BackgroundColorProperty, FloatingLabelEntryBase.BackgroundColorProperty.PropertyName);
 			_Label.SetBinding (ExtendedLabel.FontNameProperty, FontNamePropertyName);
+			_Label.SetBinding (ExtendedLabel.TextColorProperty, TextColorPropertyName);
 
 			_Label.BindingContext = this;
 
@@ -265,6 +284,7 @@ namespace FloatingLabelEntry.Base
 			_Entry.SetBinding (ExtendedEntry.CustomKeyboardProperty, CustomKeyboardPropertyName);
 			_Entry.SetBinding (ExtendedEntry.FontNameProperty, FontNamePropertyName);
 			_Entry.SetBinding (ExtendedEntry.BackgroundColorProperty, FloatingLabelEntryBase.BackgroundColorProperty.PropertyName);
+			_Entry.SetBinding (ExtendedEntry.TextColorProperty, TextColorPropertyName);
 
 			_Entry.BindingContext = this;
 

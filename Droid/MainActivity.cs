@@ -1,5 +1,5 @@
 ﻿using System;
-
+using FloatingLabelEntry.Android;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
@@ -18,7 +18,7 @@ namespace FloatingLabelEntry.Demo.Droid
 			base.OnCreate (bundle);
 
 			global::Xamarin.Forms.Forms.Init (this, bundle);
-
+			FloatingLabelEntryBaseRenderer.Register ();
 			LoadApplication (new App ());
 		}
 	}

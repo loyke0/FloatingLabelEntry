@@ -7,7 +7,6 @@ using Android.Graphics.Drawables;
 
 
 [assembly: ExportRenderer(typeof(RoundedCornerView), typeof(RoundedCornerViewRenderer))]
-
 namespace FloatingLabelEntry.Android.ExtendedControls
 {
 	public class RoundedCornerViewRenderer:FrameRenderer
@@ -18,7 +17,7 @@ namespace FloatingLabelEntry.Android.ExtendedControls
 		public static void Register() { }
 
 		/// <summary>
-		/// 
+		/// ,
 		/// </summary>
 		/// <param name="e"></param>
 		protected override void OnElementChanged (ElementChangedEventArgs<Frame> e)

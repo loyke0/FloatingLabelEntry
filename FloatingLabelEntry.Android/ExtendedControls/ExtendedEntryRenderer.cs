@@ -8,7 +8,7 @@ using FloatingLabelEntry.Enumerations;
 using Android.Text;
 using Android.Graphics.Drawables;
 
-[assembly: ExportRenderer(typeof(ExtendedLabel), typeof(ExtendedLabelRenderer))]
+[assembly: ExportRenderer(typeof(ExtendedEntry), typeof(ExtendedEntryRenderer))]
 namespace FloatingLabelEntry.Android.ExtendedControls
 {
 	public class ExtendedEntryRenderer:EntryRenderer
