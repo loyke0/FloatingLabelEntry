@@ -29,6 +29,7 @@ namespace FloatingLabelEntry.Android.ExtendedControls
 				this.Control.SetBackground(shape);
 				this.Control.SetHintTextColor (Xamarin.Forms.Color.Gray.ToAndroid());
 				this.Control.SetTextColor (Xamarin.Forms.Color.Black.ToAndroid());
+				this.Control.SetPadding (0, 0, 0, 0);
 				this.SetKeyboard (entry.CustomKeyboard);
 				this.SetFont (entry);
 			}

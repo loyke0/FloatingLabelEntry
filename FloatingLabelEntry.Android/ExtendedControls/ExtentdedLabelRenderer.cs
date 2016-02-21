@@ -4,6 +4,7 @@ using FloatingLabelEntry.ExtendedControls;
 using FloatingLabelEntry.Android.ExtendedControls;
 using System;
 using Android.Graphics;
+using Android.Graphics.Drawables;
 
 
 
@@ -18,6 +19,7 @@ namespace FloatingLabelEntry.Android.ExtendedControls
 			if (e.OldElement==null && e.NewElement!=null) {
 				var label = e.NewElement as ExtendedLabel;
 				this.SetFont (label);
+				this.SetPadding (0, 0, 0, 0);
 			}
 		}
 

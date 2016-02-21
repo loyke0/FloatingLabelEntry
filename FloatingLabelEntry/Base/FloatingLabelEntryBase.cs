@@ -224,8 +224,8 @@ namespace FloatingLabelEntry.Base
 					
 		protected ActivityIndicator _ActivityIndicator { get; set; }
 		protected ContentView _DisplayView { get; set; }
-		protected Label _Label { get; set;}
-		protected Label _InfoMessage { get; set; }
+		protected ExtendedLabel _Label { get; set;}
+		protected ExtendedLabel _InfoMessage { get; set; }
 		protected ExtendedEntry _Entry { get; set;}
 
 		private Dictionary<FloatingLabelEntryState, FloatingLabelEntryStateProperties> StatesProperties { get; set;}
@@ -246,7 +246,7 @@ namespace FloatingLabelEntry.Base
 			this._ActivityIndicator= new ActivityIndicator { IsRunning=false};
 			this.Icon = new Image ();
 
-			this._InfoMessage=new Label { 
+			this._InfoMessage=new ExtendedLabel { 
 				Text=this.InfoMessage, 
 				VerticalTextAlignment=TextAlignment.End,
 				VerticalOptions=LayoutOptions.CenterAndExpand,
@@ -261,7 +261,7 @@ namespace FloatingLabelEntry.Base
 
 			_InfoMessage.BindingContext = this;
 
-			_Label = new Label {
+			_Label = new ExtendedLabel {
 				Text=this.LabelText,
 				Opacity=0,
 				TextColor=this.TextColor,
