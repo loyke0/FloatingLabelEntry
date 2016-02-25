@@ -43,6 +43,10 @@ namespace FloatingLabelEntry.iOS.ExtendedControls
 			else if (e.PropertyName==ExtendedEntry.FontNameProperty.PropertyName) {
 				SetFont (entry);
 			}
+			//Workaround for bug #1
+			else if (e.PropertyName==ExtendedEntry.PlaceholderProperty.PropertyName && !String.IsNullOrWhiteSpace(entry.FontName)) {
+				ResetPlaceholderFont (entry);
+			}
 		}
 			
 		private void SetFont (ExtendedEntry entry){
@@ -53,10 +57,17 @@ namespace FloatingLabelEntry.iOS.ExtendedControls
 					this.Control.Font = font;
 				}
 			} else {
-				var tmp = Font.Default.ToUIFont ().WithSize ((nfloat)entry.FontSize);
 				this.Control.Font = Font.Default.ToUIFont().WithSize((nfloat)entry.FontSize);
 			}
 		}
+
+
+		//Workaround for bug #1
+		private void ResetPlaceholderFont(ExtendedEntry entry){
+			this.Control.Font = Font.Default.ToUIFont().WithSize((nfloat)entry.FontSize);
+			SetFont (entry);
+		}
+
 
 		private void SetKeyboard(CustomKeyboardEnum keyboard){
 			switch (keyboard) {
@@ -121,8 +132,6 @@ namespace FloatingLabelEntry.iOS.ExtendedControls
 			if (barButtonItem != null)
 				Control.Text += barButtonItem.Title;
 		}
-
-
 	}
 }
 
