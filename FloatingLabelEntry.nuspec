@@ -3,17 +3,14 @@
    <metadata minClientVersion="2.8.1">
        <id>FLoatingLabelEntry</id>
        <version>0.1</version>
-       <title>Image Circle Control Plugin for Xamarin.Forms</title>
-       <authors>James Montemagno</authors>
-       <owners>James Montemagno</owners>
-       <licenseUrl>https://github.com/jamesmontemagno/Xamarin.Plugins/blob/master/LICENSE.md</licenseUrl>
-       <projectUrl>https://github.com/jamesmontemagno/Xamarin.Plugins</projectUrl>
-      <iconUrl>http://www.refractored.com/images/circle_image_icon.png</iconUrl>
+       <title>Float Label Control Plugin for Xamarin.Forms</title>
+       <authors>Loic Otten</authors>
+       <owners>Loic Otten</owners>
+       <licenseUrl>https://github.com/loyke0/FloatingLabelEntry/blob/master/LICENCE.md</licenseUrl>
+       <projectUrl>https://github.com/loyke0/FloatingLabelEntry</projectUrl>
        <requireLicenseAcceptance>false</requireLicenseAcceptance>
        <description>
-          Custom control for your Xamarin.Forms project ot turn your images into elegant circle images.
-          Customizable border thickness and color.
-          Ensure you call ImageCircleRenderer.Init() on each platform!
+          Custom control for your Xamarin.Forms project.
        </description>
        <summary>Use a Circle Image in your Xamarin.Forms projects! Ensure you call ImageCircleRenderer.Init() on each platform!</summary>
        <tags>xamarin, pcl, xam.pcl, windows phone, winphone, wp8, android, xamarin.forms, ios</tags>
