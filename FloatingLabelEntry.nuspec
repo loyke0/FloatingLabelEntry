@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
        <id>FLoatingLabelEntry</id>
-       <version>0.1</version>
+       <version>0.1.1</version>
        <title>Float Label Control Plugin for Xamarin.Forms</title>
        <authors>Loic Otten</authors>
        <owners>Loic Otten</owners>
@@ -12,8 +12,8 @@
        <description>
           Custom control for your Xamarin.Forms project.
        </description>
-       <summary>Use a Circle Image in your Xamarin.Forms projects! Ensure you call ImageCircleRenderer.Init() on each platform!</summary>
-       <tags>xamarin, pcl, xam.pcl, windows phone, winphone, wp8, android, xamarin.forms, ios</tags>
+       <summary>Custom control for your Xamarin.Forms project.</summary>
+       <tags>xamarin, pcl, android, xamarin.forms, ios</tags>
        <dependencies>
          <dependency id="Xamarin.Forms" version="2.0.1.6505" />
        </dependencies>
